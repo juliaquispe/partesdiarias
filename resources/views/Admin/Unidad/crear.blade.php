@@ -9,12 +9,8 @@ crear unidad
 
 @section('contenido')
 <br>
-
 				@include ('includes.formularioerror')
 				@include ('includes.mensaje')
-				        	
-				
-				
               	<form class="form-horizontal" action="{{route ('guardarunidad')}}" id="form-general" method="POST">
 					
 					@csrf

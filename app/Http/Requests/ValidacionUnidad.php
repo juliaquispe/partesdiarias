@@ -23,13 +23,22 @@ class ValidacionUnidad extends FormRequest
      */
     public function rules()
     {
-         return [
-            'nombre' =>'required|max:60|unique:unidad,nombre',  //PARA PODER CREAR
-            'descripcion' =>'nullable|max:300',
-            'sigla' =>'required|max:10|unique:unidad,sigla'
-            // 'nombre' =>'required|max:60|unique:unidad,nombre,' .$this->route('id'), // PARA PODER ACTUALIZAR
-            // 'descripcion' =>'nullable|max:300',
-            // 'sigla' =>'required|max:10|unique:unidad,sigla,'.$this->route('id')
-        ];
+        if($this ->route('id')){
+            return [
+                'nombre' =>'required|max:60|unique:unidad,nombre,' .$this->route('id'), // PARA PODER EDITAR Y ACTUALIZAR
+                'descripcion' =>'nullable|max:300',
+                'sigla' =>'required|max:10|unique:unidad,sigla,'.$this->route('id')
+            ];
+        }
+        else{
+            return [
+                'nombre' =>'required|max:60|unique:unidad,nombre',  //PARA PODER CREAR
+                'descripcion' =>'nullable|max:300',
+                'sigla' =>'required|max:10|unique:unidad,sigla'
+                // 'nombre' =>'required|max:60|unique:unidad,nombre,' .$this->route('id'), // PARA PODER ACTUALIZAR
+                // 'descripcion' =>'nullable|max:300',
+                // 'sigla' =>'required|max:10|unique:unidad,sigla,'.$this->route('id')
+            ];
+        }  
     }
 }

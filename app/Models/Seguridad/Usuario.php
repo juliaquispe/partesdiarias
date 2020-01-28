@@ -2,24 +2,47 @@
 
 namespace App\Models\Seguridad;
 
+use App\Models\Admin\Rol;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 
 class Usuario extends Authenticatable
 {
     protected $remember_token =false;
     protected $table ='usuario';
     protected $fillable =['usuario', 'nombre', 'apellido', 'email', 'password'];
-    protected $guarded =['id'];
 
-    public function setSession(){
-    	Session::put([
-    		'usuario'=>$this->usuario,
-    		'id_usuario'=>$this->id,
+
+    public function roles()
+    {
+        return $this->belongsToMany(Rol::class,'usuario_rol'); // es la relacion de mucho a muchos entre usuario u rol
+    }
+
+
+    public function setSession($roles){
+            
+        if(count ($roles)==1){
+            
+            Session::put
+        ([
+           
+            'rol_id'=>$roles[0]['id'],
+            'rol_name'=>$roles[0]['name'],
+            'usuario'=>$this->usuario,
+            'usuario_id'=>$this->id,
     		'nombre_usuario'=>$this->nombre,
-    		'apellido'=>$this->apellido
-    	]);
+            'apellido'=>$this->apellido,
+            'email_usuario'=>$this->email
+        ]);
+
+      
     }
 }
-
+    public function setPasswordAttribute($pass)//funcion de laravel para encriptar el password
+    {
+        $this->attributes['password']= Hash::make($pass);
+    }
+}
 
 

@@ -1,30 +1,42 @@
-@extends("theme.$theme.layout")
+
+@extends ("theme.$theme.layout")
 
 @section('titulo')
-usuario
+crear usuario
+@endsection
+@section('scripts')
+       <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/Usuario/crear.js")}}"></script>
 @endsection
 
 @section('contenido')
-<div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title" align="center"><b>Crear Usuario</b></h3>
-
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                    </div>
-                  </div>
+<br>
+<body aling="center">
+    <div class="col-md-6">
+        <div class="box-tools pull-right" style="color:red">
+        <a href="{{route('usuario')}}" class="btn btn-block btn-info btn-sm">
+            <i class="fa fa-fw fa-reply-all" ></i> Ver Usuarios
+        </a>
+        </div>       
+        @include ('includes.mensaje')
+        @include ('includes.formularioerror')
+        <div class="card card-warning">
+                <div class="card-header">
+                    <h3 class="card-title"><b>Crear Usuario</b></h3>
                 </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 300px;">
-                <table class="table table-head-fixed">
-                  
-                </table>
-              </div>
+            <div class="card-body">
+                <form class="form-horizontal" action="{{route ('guardarusuario')}}" id="form-general" method="POST">
+                    @csrf
+                    <div class="box-body">
+                        @include('admin.usuario.form')
+                    </div>
+                    <div class="box-footer">
+                        <div class="box-body">
+                            @include('Includes.botoncrear')
+                        </div>
+                    </div>
+                </form>
+            </div>               
+        </div>
+    </div>
+</body>
 @endsection

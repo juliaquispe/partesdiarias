@@ -10,7 +10,7 @@ crear rol
 
 @section('contenido')
 @include ('includes.formularioerror')
-				@include ('includes.mensaje')
+@include ('includes.mensaje')
 <br>
     <body aling="center">
         <div class="col-md-6">

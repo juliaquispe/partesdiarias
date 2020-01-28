@@ -3,7 +3,9 @@
 @section('titulo')
 rol
 @endsection
-
+@section('scripts')
+  <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/Alertas/alertas.js")}}"></script>
+@endsection
 @section('contenido')
 @include ('includes.mensaje')
 
@@ -47,8 +49,7 @@ rol
                     <td style="text-align: center;">
                       <a href="{{url("admin/rol/$Rol->id/editar")}}" class="btn-accion-tabla tooltipsC" title="Editar Rol">
                         <i class="fa fa-paperclip"></i>
-                      </a>
-                      
+                      </a>  
                       <form action="{{url("admin/rol/$Rol->id/eliminar")}}" class="d-inline form-eliminar" method="POST" id="form-eliminar">
                         @csrf @method("delete")
                         <button type="submit" class="btn-action-table eliminar tooltipsC" title="Eliminar Rol" >
@@ -56,7 +57,6 @@ rol
                         </button>
                       </form>
                     </td>
-
                   </tr>
                   @endforeach
                   </tbody>

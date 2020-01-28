@@ -26,7 +26,6 @@ edtar rol
                     <h3 class="card-title"><b>Actualizar Rol</b></h3>
                 </div>
                 <div class="card-body">
-
                     <form action="{{route ('actualizarrol',['id' => $Rol->id])}}" role="form" aling="center" class="form-horizontal" id="form-general" method="POST">
                       @csrf @method('PUT')
                       <div class="row">

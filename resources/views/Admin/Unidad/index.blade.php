@@ -8,7 +8,7 @@ unidad
 @endsection
 @section('contenido')
 @include ('includes.mensaje')
-
+@include ('includes.formularioerror')
 <div class="box-tools pull-right" style="color:red">
   <a href="{{route('crearunidad')}}" class="btn btn-block btn-info btn-sm">
     <i class=" fa fa-plus" ></i> Crear Unidades
@@ -61,7 +61,6 @@ unidad
                         </button>
                       </form>
                     </td>
-
                   </tr>
                   @endforeach
                   </tbody>

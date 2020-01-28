@@ -1,4 +1,15 @@
 <div class="card card-info">
+  <div style="type=text/css"
+    .boton_1{
+      text-decoration: none;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 20px;
+      color: #ffffff;
+      background-color: #1883ba;}>
+    <a href="{{route('unidad')}}"> Ver Unidades </a>
+  </div>
+  <br>
     <div class="card-header">
       <h3 class="card-title">Actualizar Datos</h3>
     </div>        
@@ -36,13 +47,6 @@
           @csrf 
           <button type="submit" class="btn btn-default float-right">Cancelar</button>
         </form>
-
-      </div>
-
-      <div class="box-tools pull-right" style="color:red">
-        <a href="{{route('unidad')}}" class="btn btn-block btn-info btn-sm">
-          <i class="fa fa-fw fa-reply-all" ></i> Volver a Unidades
-        </a>
       </div>
       <!-- /.card-footer -->
     </form>

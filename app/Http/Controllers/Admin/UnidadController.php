@@ -40,15 +40,15 @@ class UnidadController extends Controller
      */
     public function store(ValidacionUnidad $request)
     {
-        $Unidad= new Unidad;
-        $Unidad->nombre = $request->nombre;
-        $Unidad->descripcion = $request->descripcion;
-        $Unidad->sigla = $request->sigla;
-        $Unidad-> save();
-       // return redirect()->route('admin.unidad')->with('mensaje', 'la unidad fue actualizada');
+        // $Unidad= new Unidad;
+        // $Unidad->nombre = $request->nombre;
+        // $Unidad->descripcion = $request->descripcion;
+        // $Unidad->sigla = $request->sigla;
+        // $Unidad-> save();
+        // return redirect()->route('admin.unidad')->with('mensaje', 'la unidad fue actualizada');
                             
-    //    Unidad::create($request->all());
-    //    return redirect('admin/unidad')->with('mensaje','datos guardados');
+       Unidad::create($request->all());
+       return redirect('admin/unidad')->with('mensaje','datos guardados');
     }
 
     /**
@@ -70,7 +70,7 @@ class UnidadController extends Controller
     public function edit($id)
     {
         $Unidd= Unidad::findOrfail($id);
-        //dd($unid);
+        //dd($unid); //PARA QUE MUESTRE SI LOS DATOS SE ESTAN RECUPETANDO
         return view ('admin.unidad.editar', compact('Unidd'));
     }
 
@@ -83,15 +83,15 @@ class UnidadController extends Controller
      */
     public function update(ValidacionUnidad $request, $id)
     {
-        $Unidad= Unidad::findOrFail($id);
-        $Unidad->nombre = $request->nombre;
-        $Unidad->descripcion = $request->descripcion;
-        $Unidad->sigla = $request->sigla;
-        $Unidad-> save();
-      // return redirect()->route('adminunidad') ->with('mensaje', 'la unidad fue actualizada');
+        // $Unidad= Unidad::findOrFail($id);
+        // $Unidad->nombre = $request->nombre;
+        // $Unidad->descripcion = $request->descripcion;
+        // $Unidad->sigla = $request->sigla;
+        // $Unidad-> save();
+        // return redirect()->route('adminunidad') ->with('mensaje', 'la unidad fue actualizada');
                            
-    //     Unidad::findOrFail($id)->update($request->all());
-    //    return redirect('admin/unidad')->with('mensaje','datos actualizados');
+        Unidad::findOrFail($id)->update($request->all());
+        return redirect('admin/unidad')->with('mensaje','datos actualizados');
       
     }
 

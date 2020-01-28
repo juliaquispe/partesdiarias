@@ -18,15 +18,33 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition login-page" bgcolor="black">
+<body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
     <a href="{{route('inicio')}}"><b>SPSC</b></a>
+    
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Iniciar Sesion</p>
+
+
+      @if (session('status'))
+      <div class="alert alert-success" role="alert">
+          {{ session('status') }}
+      </div>
+  @endif
+  @if ($errors->any())
+      <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <div class="alert-text">
+              @foreach ($errors->all() as $error)
+                  <span>{{ $error }}</span>
+              @endforeach
+          </div>
+      </div>
+  @endif
 
 
           <form action="{{route('loginpost')}}" method="POST" autocomplete="off">
