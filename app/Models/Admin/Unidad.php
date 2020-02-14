@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Admin\Personal;
 use Illuminate\Database\Eloquent\Model;
 
 class Unidad extends Model
@@ -11,5 +12,8 @@ class Unidad extends Model
         'nombre', 'descripcion', 'sigla'
     ]; //PARA LLENAR DESDE UN FORMULARIO
   
-
+    // public function personales()
+    // {
+    //     return $this->hasMany(Personal::class);
+    // }
 }

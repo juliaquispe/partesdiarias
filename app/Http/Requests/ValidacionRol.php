@@ -23,9 +23,16 @@ class ValidacionRol extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' =>'required|max:20|unique:rol,name', // para poder crear
-            //'name' =>'required|max:10|unique:unidad,name,' .$this->route('id'), // PARA PODER ACTUALIZAR
-        ];
+        if($this ->route('id')){
+            return [
+                'name' =>'required|max:20|unique:rol,name,' .$this->route('id')//PARA PODER EDITAR Y ACTUALIZAR
+            ];
+        }
+        else{
+            return [
+                'name' =>'required|max:20|unique:rol,name', // para poder crear
+                //'name' =>'required|max:10|unique:unidad,name,' .$this->route('id'), // PARA PODER ACTUALIZAR
+            ];
+        } 
     }
 }

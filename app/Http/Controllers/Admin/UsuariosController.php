@@ -31,7 +31,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        $rols = Rol::orderBy('id')->pluck('name','id')-> toArray();
+        $rols = Rol::orderBy('id')->pluck('name','id')-> toArray(); //pluck sirve para escoger los campos que quieres 
        return view('Admin.Usuario.crear', compact('rols'));
 
     }
@@ -42,10 +42,10 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ValidacionUsuario $request)
+    public function store(ValidacionUsuario $request) // store es para almacenar en la bd  lo que se edito
     {
         $Usuario = Usuario::create($request->all());
-        $Usuario->roles()->attach($request->rol_id);
+        $Usuario->roles()->attach($request->rol_id); //attach  para agregar en la bd
         return redirect('admin/usuario')->with('mensaje','datos guardados');
     //     Usuario::create($request->all());
     //    return redirect('admin/usuario')->with('mensaje','datos guardados');

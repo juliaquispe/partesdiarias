@@ -14,19 +14,12 @@ class CreateUsuarioRol extends Migration
     public function up()
     {
     Schema::create('usuario_rol', function (Blueprint $table) {
-        // $table->increments('id');
-        // $table->unsignedInteger('id_rol')->unsigned();
-        // $table->foreign('id_rol')->references('id')->on('rol')->onDelete('restrict')->onUpdate('restrict')->defaul(1);
-        // $table->unsignedInteger('id_usuario')->unsigned();
-        // $table->foreign('id_usuario')->references('id')->on('usuario')->onDelete('restrict')->onUpdate('restrict')->defaul(1);
-        // $table->string('estado',50);
-        // $table->timestamps();
-
+    
         $table->unsignedInteger('rol_id');
         $table->foreign('rol_id', 'fk_usuariorol_rol')->references('id')->on('rol')->onDelete('restrict')->onUpdate('restrict');
         $table->unsignedInteger('usuario_id');
         $table->foreign('usuario_id', 'fk_usuariorol_usuario')->references('id')->on('usuario')->onDelete('cascade')->onUpdate('restrict');
-        $table->string('estado')->nullable();
+        $table->string('estado')->nullable()->default(1);
         $table->charset = 'utf8mb4';
         $table->collation = 'utf8mb4_spanish_ci';
     });

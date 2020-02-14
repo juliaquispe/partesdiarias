@@ -39,12 +39,8 @@ edtar rol
                       </div>
                       <!-- input states -->
                       @include('Includes.botonactualizar')
-                      
-                      
-
                     </form>
-                </div>
-
+                  </div>
             </div>
                 <!-- /.card-body -->
         </div>

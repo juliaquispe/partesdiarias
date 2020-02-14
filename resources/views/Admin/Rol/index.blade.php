@@ -5,6 +5,7 @@ rol
 @endsection
 @section('scripts')
   <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/Alertas/alertas.js")}}"></script>
+  <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/datatable/datatable.js")}}"></script>
 @endsection
 @section('contenido')
 @include ('includes.mensaje')
@@ -20,16 +21,6 @@ rol
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title"><b>Roles</b></h3>
-
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                    </div>
-                  </div>
-                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -44,8 +35,8 @@ rol
                   <tbody>
                       @foreach ($Roll as $Rol)
                   <tr>
-                  	<th style="text-align: center;">{{$Rol->id}}</th>
-                  	<th style="text-align: center;">{{$Rol->name}}</th>
+                  	<td style="text-align: center;">{{$Rol->id}}</td>
+                  	<td style="text-align: center;">{{$Rol->name}}</td>
                     <td style="text-align: center;">
                       <a href="{{url("admin/rol/$Rol->id/editar")}}" class="btn-accion-tabla tooltipsC" title="Editar Rol">
                         <i class="fa fa-paperclip"></i>

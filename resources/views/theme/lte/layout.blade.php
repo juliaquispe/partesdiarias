@@ -17,6 +17,7 @@
 
   @yield("styles")
   <link rel="stylesheet" type="text/css" href="{{asset("assets/Css/Custom.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("assets/Css/jquery.dataTables.min.css")}}"> 
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -32,8 +33,7 @@
         <section class="content">
          @yield("contenido")
         </section>
-    </div>
-    
+    </div> 
     @include ("theme/$theme/footer")
   </div>
    @yield("scriptsPlugins")
@@ -51,6 +51,8 @@
   <script src="{{asset("assets/Js/Scripts.js")}}"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script type="text/javascript" src="{{asset("assets/Js/datatables/jquery.dataTables.min.js")}}"></script>
+
 
    @yield("scripts")
 

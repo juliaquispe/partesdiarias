@@ -40,9 +40,6 @@ crear rol
                       </div>
                       <!-- input states -->
                       @include('Includes.botoncrear')
-                      
-                      
-
                     </form>
                 </div>
 

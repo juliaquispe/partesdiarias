@@ -3,8 +3,6 @@
                <!-- general form elements disabled -->
 
                  <!-- /.card-header -->
-   
-
     <div class="form-group">
       <label class="requerido">Usuario</label>
       <input type="text" class="form-control" style="WIDTH: 350px" placeholder="Admin" required id="usuario" name="usuario" autocomplete="on" value="{{old('usuario', $Usuario->usuario ?? '')}}" />
@@ -12,15 +10,15 @@
 
     <div class="form-group">
         <label class="requerido">Nombre</label>
-        <input type="text" class="form-control" style="WIDTH: 350px" placeholder="Juan" required id="nombre" name="nombre" autocomplete="on" value="{{old('usuario', $Usuario->nombre ?? '')}}"/>
+        <input type="text" class="form-control" style="WIDTH: 350px" placeholder="Juan" required id="nombre" name="nombre" autocomplete="on" value="{{old('nombre', $Usuario->nombre ?? '')}}"/>
     </div>
     <div class="form-group">
         <label class="requerido">Apellido</label>
-        <input type="text" class="form-control" style="WIDTH: 350px" placeholder="Perez" required id="apellido" name="apellido" autocomplete="on" value="{{old('usuario', $Usuario->apellido ?? '')}}"/>
+        <input type="text" class="form-control" style="WIDTH: 350px" placeholder="Perez" required id="apellido" name="apellido" autocomplete="on" value="{{old('apellido', $Usuario->apellido ?? '')}}"/>
     </div>
     <div class="form-group">
         <label class="requerido">Email</label>
-        <input type="email" class="form-control" style="WIDTH: 350px" placeholder="juan@gmail.com" required id="email" name="email" autocomplete="on" value="{{old('usuario', $Usuario->email ?? '')}}"/>       
+        <input type="email" class="form-control" style="WIDTH: 350px" placeholder="juan@gmail.com" required id="email" name="email" autocomplete="on" value="{{old('email', $Usuario->email ?? '')}}"/>       
     </div>
     <div class="form-group">
         <label class="{{!isset($Usuario) ? 'requerido' : ''}}">Contraseña</label>
