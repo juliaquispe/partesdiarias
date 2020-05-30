@@ -9,18 +9,20 @@ unidad
 @endsection
 @section('contenido')
 @include ('includes.mensaje')
+@include ('includes.mensajeerror')
 @include ('includes.formularioerror')
-<div class="box-tools pull-right" style="color:red">
-  <a href="{{route('crearunidad')}}" class="btn btn-block btn-info btn-sm">
-    <i class=" fa fa-plus" ></i> Crear Unidades
-  </a>
-</div>
-
+@if(Auth::user()->permiso->add ==1) {{-- pregunta si tiene permiso para crear para que le mueste o no el boton crear --}}
+  <div class="box-tools pull-right">
+    <a href="{{route('crearunidad')}}" class="btn btn-block btn-info btn-sm">
+      <i class=" fa fa-plus"></i> Crear Unidades
+    </a>
+  </div>
+@endif
 <div class="row">
           <div class="col-12">
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title"><b>Unidades</b></h3>
+              <div class="card-header" style="background-color:rgb(148, 237, 253)">
+                <h3 class="card-title"><b>Lista de Unidades</b></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -42,15 +44,19 @@ unidad
                   	<td style="text-align: center;">{{$Unidd->descripcion}}</td>
                     <td style="text-align: center;">{{$Unidd->sigla}}</td>
                     <td>
-                      <a href="{{url("admin/unidad/$Unidd->id/editar")}}" class="btn-accion-tabla tooltipsC" title="Editar Unidad">
-                        <i class="fa fa-paperclip"></i>
-                      </a>
-                      <form action="{{url("admin/unidad/$Unidd->id/eliminar")}}" class="d-inline form-eliminar" method="POST" id="form-eliminar">
-                        @csrf @method("delete")
-                        <button type="submit" class="btn-action-table eliminar tooltipsC" title="Eliminar Unidad">
-                          <i class="fa fa-fw fa-trash text-danger"></i>
-                        </button>
-                      </form>
+                      @if(Auth::user()->permiso->edit ==1) 
+                          <a href="{{url("admin/unidad/$Unidd->id/editar")}}" class="btn-accion-tabla tooltipsC" title="Editar Unidad">
+                            <i class="fa fa-paperclip"></i>
+                          </a>
+                      @endif
+                      @if(Auth::user()->permiso->remove ==1) 
+                          <form action="{{url("admin/unidad/$Unidd->id/eliminar")}}" class="d-inline form-eliminar" method="POST" id="form-eliminar">
+                            @csrf @method("delete")
+                            <button type="submit" class="btn-action-table eliminar tooltipsC" title="Eliminar Unidad">
+                              <i class="fa fa-fw fa-trash text-danger"></i>
+                            </button>
+                          </form>
+                      @endif
                     </td>
                   </tr>
                   @endforeach

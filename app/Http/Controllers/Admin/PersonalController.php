@@ -7,14 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidacionPersonal;
 use App\Models\Admin\Unidad;
+use Illuminate\Support\Facades\Storage;
 
 class PersonalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $Personal= Personal::with('unidad:id,nombre')->get();
@@ -28,70 +24,46 @@ class PersonalController extends Controller
        return view('Admin.Personal.crear', compact('Unidad'));   
        //dd($Personal);
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function store(ValidacionPersonal $request)
     {
-       Personal::create($request->all());
-       return redirect('admin/personal')->with('mensaje', 'personal creado correctamente');
-         
+        if($foto=Personal::setFoto($request->foto_up))
+            $request->request->add(['foto'=>$foto]);
+        Personal::create($request->all());
+        return redirect('admin/personal')->with('mensaje', 'personal creado correctamente');    
+        // dd($request->all());
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $Unidad= Unidad::orderBy('id')->pluck('nombre', 'id')->toArray();
         $Personal= Personal::with('unidad')->findOrFail($id);
         return view('admin.personal.editar', compact('Personal', 'Unidad'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(ValidacionPersonal $request, $id)
     {
         // $Personal= Personal:: findOrFail($id);
         // $Personal->update(array_filter($request->all()));
         // $Personal->unidad()->sync($request->unidad_id); // sync es para actualizar
         // return redirect('admin/personal')->with('mensaje','el personal fue actualizado');
-        Personal::findOrFail($id)->update($request->all());
+        $Personal= Personal::findOrFail($id);
+        if($foto=Personal::setFoto($request->foto_up, $Personal->foto))
+        $request->request->add(['foto'=>$foto]);
+        $Personal->update($request->all());
         return redirect('admin/personal')->with('mensaje','datos actualizados');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request, $id)
     {
         if ($request->ajax()) {
+            $personal=Personal::findOrFail($id);
             if (Personal::destroy($id)) {
+                Storage::disk('public')->delete("Datos/Fotos/Personal/$personal->foto");  
                 return response()->json(['mensaje' => 'ok']);
             } else {
                 return response()->json(['mensaje' => 'ng']);
@@ -100,4 +72,5 @@ class PersonalController extends Controller
             abort(404);
         }
     }
+    
 }

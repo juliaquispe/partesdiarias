@@ -24,6 +24,7 @@ class CreatePersonalTable extends Migration
             $table->integer('unidad_id')->unsigned();
             $table->foreign('unidad_id')->references('id')->on('unidad')->onDelete('restrict');
             $table->string('foto',10)->nullable();
+            $table->string('sexo',9);
             $table->charset = 'utf8mb4';
             $table->collation ='utf8mb4_spanish_ci';
             $table->timestamps();

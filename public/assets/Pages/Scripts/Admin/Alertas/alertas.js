@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#tabla-data").on('submit', '.form-eliminar', function () {
+    $("#tabla-data").on('submit', '.form-eliminar', function () { //#apunta al id de la tabla y . apunta a la clase de la tabla
         event.preventDefault();
         const form = $(this);
         swal({

@@ -4,7 +4,7 @@
 crear personal
 @endsection
 @section('scripts')
-       <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/Usuario/crear.js")}}"></script>
+       <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/Personal/crear.js")}}"></script>
 @endsection
 @section('contenido')
 <br>
@@ -22,7 +22,7 @@ crear personal
                     <h3 class="card-title"><b>Editar Personal</b></h3>
                 </div>
                 <div class="card-body">
-                    <form role="form" aling="center" method="POST" id="form-general" action="{{route('actualizarpersonal', ['id'=>$Personal->id])}}">
+                    <form role="form" aling="center" method="POST" enctype="multipart/form-data" id="form-general" action="{{route('actualizarpersonal', ['id'=>$Personal->id])}}">
                         @csrf 
                         @method('PUT')
                         @include('admin.personal.form')

@@ -11,15 +11,18 @@ usuario
 
 @section('contenido')
 
-<div class="box-tools pull-right" style="color:red">
-  <a href="{{route('crearusuario')}}" class="btn btn-block btn-info btn-sm">
-    <i class=" fa fa-plus" ></i> Crear USuarios
-  </a>
-</div>
+@if(Auth::user()->permiso->add ==1) {{-- pregunta si tiene permiso para crear para que le mueste o no el boton crear --}}
+  <div class="box-tools pull-right" style="color:red">
+    <a href="{{route('crearusuario')}}" class="btn btn-block btn-info btn-sm">
+      <i class=" fa fa-plus" ></i> Crear USuarios
+    </a>
+  </div>
+@endif
 
 <div class="row">
           <div class="col-12">
             @include ('includes.mensaje')
+            @include ('includes.mensajeerror')
             <div class="card">
               <div class="card-header" style="background-color:mediumspringgreen">
                 <h3 class="card-title"><b>Usuarios</b></h3>
@@ -54,18 +57,23 @@ usuario
                     @endforeach
                     </td>
                     {{-- <th style="text-align: center;">{{$Usuari->roles[0]->name}}</th> --}}
-                  	<td style="text-align: center;">{{$Usuari->email}}</td>
+                    <td style="text-align: center;">{{$Usuari->email}}</td>
                     <td style="text-align: center;">
-                      <a href="{{url("admin/usuario/$Usuari->id/editar")}}" class="btn-accion-tabla tooltipsC" title="Editar Usuario">
-                        <i class="fa fa-paperclip"></i>
-                      </a>  
-                      <form action="{{url("admin/usuario/$Usuari->id/eliminar")}}" class="d-inline form-eliminar" method="POST" id="form-eliminar">
-                        @csrf @method("delete")
-                        <button type="submit" class="btn-action-table eliminar tooltipsC" title="Eliminar Usuario" >
-                          <i class="fa fa-fw fa-trash text-danger"></i>
-                        </button>
-                      </form>
+                      @if(Auth::user()->permiso->edit ==1)
+                        <a href="{{url("admin/usuario/$Usuari->id/editar")}}" class="btn-accion-tabla tooltipsC" title="Editar Usuario">
+                          <i class="fa fa-paperclip"></i>
+                        </a> 
+                      @endif
+                      @if(Auth::user()->permiso->remove ==1) 
+                        <form action="{{url("admin/usuario/$Usuari->id/eliminar")}}" class="d-inline form-eliminar" method="POST" id="form-eliminar">
+                          @csrf @method("delete")
+                          <button type="submit" class="btn-action-table eliminar tooltipsC" title="Eliminar Usuario" >
+                            <i class="fa fa-fw fa-trash text-danger"></i>
+                          </button>
+                        </form>
+                      @endif
                     </td>
+
                   </tr>
                   @endforeach
                   </tbody>

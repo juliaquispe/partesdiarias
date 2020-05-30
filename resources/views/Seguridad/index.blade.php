@@ -18,15 +18,15 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url(/assets/images/fond.jpg); background-size:cover">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{route('inicio')}}"><b>SPSC</b></a>
+    <a href="{{route('inicio')}}"><b>Sistema De Partes Diarias</b></a>
     
   </div>
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body">
+    <div class="card-body login-card-body" style="background-color: rgb(91, 194, 207)">
       <p class="login-box-msg">Iniciar Sesion</p>
 
 

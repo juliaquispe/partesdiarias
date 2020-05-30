@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioAdminSeeder extends Seeder
 {
@@ -31,7 +32,7 @@ class UsuarioAdminSeeder extends Seeder
 
         DB::table('usuario')->insert([
         
-        	'usuario'=>'julis',
+        	'usuario'=>'julia',
         	'nombre'=>'julia',
         	'apellido'=>'quispe',
         	'email'=>'quispe@gmail.com',
@@ -39,7 +40,7 @@ class UsuarioAdminSeeder extends Seeder
         ]);
 
          DB::table('permiso')->insert([
-        	'id_usuario'=>1,
+        	'usuario_id'=>1,
         	'add'=>1,
         	'edit'=>1,
         	'remove'=>0

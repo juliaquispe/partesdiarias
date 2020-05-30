@@ -3,8 +3,21 @@
 @section('titulo')
 crear personal
 @endsection
+
+
+
+@section("styles")
+    <link href="{{asset("assets/Js/bootstrap-fileinput/css/fileinput.min.css")}}" rel="stylesheet" type="text/css"/>
+@endsection
+
+@section("scriptsPlugins")
+    <script src="{{asset("assets/Js/bootstrap-fileinput/js/fileinput.min.js")}}" type="text/javascript"></script>
+    <script src="{{asset("assets/Js/bootstrap-fileinput/js/locales/es.js")}}" type="text/javascript"></script>
+    <script src="{{asset("assets/Js/bootstrap-fileinput/themes/fas/theme.min.js")}}" type="text/javascript"></script>
+@endsection
+
 @section('scripts')
-       <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/Usuario/crear.js")}}"></script>
+    <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/Personal/crear.js")}}"></script>
 @endsection
 @section('contenido')
 <br>
@@ -22,7 +35,7 @@ crear personal
                     <h3 class="card-title"><b>Crear Personal</b></h3>
                 </div>
             <div class="card-body">
-                <form class="form-horizontal" action="{{route ('guardarpersonal')}}" id="form-general" method="POST">
+                <form class="form-horizontal" action="{{route ('guardarpersonal')}}" id="form-general" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
                         @include('admin.personal.form')

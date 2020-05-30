@@ -1,8 +1,4 @@
 
-
-               <!-- general form elements disabled -->
-
-                 <!-- /.card-header -->
     <div class="form-group">
       <label class="requerido">Usuario</label>
       <input type="text" class="form-control" style="WIDTH: 350px" placeholder="Admin" required id="usuario" name="usuario" autocomplete="on" value="{{old('usuario', $Usuario->usuario ?? '')}}" />
@@ -32,15 +28,40 @@
         <label for="rol_id" class="col-lg-3 control-label requerido">Rol</label>
         <div class="col-lg-5">
             <select name="rol_id" id="rol_id" class="form-control" required>
-                <option value=""> Seleccione rol</option>
+                <option value=""> Seleccione Rol</option>
                     @foreach($rols as $id =>$name) {{--agarra en valor de la variable del controlador en el index --}}
                         <option
-                            value="{{$id}}" {{old("rol_id", $Usuari->$id ?? "")==$id ? "selected" : ""}}>{{$name}}
+                            {{-- value="{{$id}}" {{old("rol_id", $Usuari->$id ?? "")==$id ? "selected" : ""}}>{{$name}} --}}
+                            value="{{$id}}"{{old("rol_id", $Usuario->roles[0]->id ?? "")==$id ? "selected" : ""}}>{{$name}}
                         </option>
                     @endforeach
             </select>
         </div>
    </div>
+   <div class="form-group">
+    <label class="checkbox-inline">Permisos</label><br>
+    <label>
+        <input type="checkbox" name="añadir" id="añadir"
+            @if (isset($Usuario)&&$Usuario->permiso->add ==1)
+                checked
+            @endif
+        >Añadir
+    </label>
+    <label>
+        <input type="checkbox" name="editar" id="editar"
+            @if (isset($Usuario)&&$Usuario->permiso->edit ==1)
+                checked
+            @endif
+        >Editar
+    </label>
+    <label>
+        <input type="checkbox" name="eliminar" id="eliminar"
+            @if (isset($Usuario)&&$Usuario->permiso->remove ==1)
+                checked
+            @endif
+        >Eliminar
+    </label>
+</div>
     
 
    {{-- apuntes 

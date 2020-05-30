@@ -13,7 +13,9 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset("assets/$theme/dist/css/adminlte.min.css")}}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+  {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> --}}
+  <link rel="stylesheet" href="{{asset("assets/Css/toastr.css")}}">
 
   @yield("styles")
   <link rel="stylesheet" type="text/css" href="{{asset("assets/Css/Custom.css")}}">
@@ -49,8 +51,10 @@
   <script src="{{asset("assets/Js/jquery_validation/localization/messages_es.min.js")}}"></script>
   <script src="{{asset("assets/Js/Funciones.js")}}"></script>
   <script src="{{asset("assets/Js/Scripts.js")}}"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}  
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}} <!-- estod 2 comentados da con internet-->
+  <script src="{{asset("assets/Js/alertas/alertas.js")}}"></script> <!--da sin internet-->
+  <script src="{{asset("assets/Js/alertas/toastr.js")}}"></script> <!--da sin internet-->
   <script type="text/javascript" src="{{asset("assets/Js/datatables/jquery.dataTables.min.js")}}"></script>
 
 

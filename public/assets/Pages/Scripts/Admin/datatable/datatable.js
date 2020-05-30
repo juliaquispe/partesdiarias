@@ -1,5 +1,10 @@
 $(document).ready(function() {
     $('#tabla-data').dataTable( {
+        // "serverSide":true,
+        "responsive":{
+            orthogonal:'responsive'//para que se acomode las tablas segun panatalla
+        },
+        "lengthMenu":[5,10,15,20,25],
         language: {
           "sProcessing":     "Procesando...",
             "sLengthMenu":     "Mostrar _MENU_ registros",

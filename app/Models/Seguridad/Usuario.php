@@ -2,6 +2,7 @@
 
 namespace App\Models\Seguridad;
 
+use App\Models\Admin\Permisos;
 use App\Models\Admin\Rol;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,8 +20,12 @@ class Usuario extends Authenticatable
         return $this->belongsToMany(Rol::class,'usuario_rol'); // es la relacion de mucho a muchos entre usuario u rol
     }
 
+    public function permiso()
+    {
+        return $this->hasOne(Permisos::class);
+    }
 
-    public function setSession($roles){
+    public function setSession($roles){  //agarra los datos del que inicia sesion
             
         if(count ($roles)==1){
             

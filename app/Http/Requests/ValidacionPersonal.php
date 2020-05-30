@@ -6,21 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ValidacionPersonal extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         if($this ->route('id'))
@@ -28,11 +18,12 @@ class ValidacionPersonal extends FormRequest
             return [
                 'nombre' =>'required|max:50',
                 'apellido' =>'required|max:50',
-                'ci' =>'required|max:20|unique:personal,ci,'.$this->route('id'),
+                'ci' =>'required|min:6|max:20|unique:personal,ci,'.$this->route('id'),
                 'celular' =>'nullable|max:30|unique:personal,celular,'.$this->route('id'), 
                 'cargo' =>'required|max:60',
                 'unidad_id'=>'required|integer',
-                'foto'=>'nullable'
+                'sexo'=>'required|max:9|min:8',
+                'foto_up'=>'nullable|image'
             ];
         }
         else{
@@ -43,7 +34,8 @@ class ValidacionPersonal extends FormRequest
                 'celular' =>'nullable|max:30|unique:personal,celular', 
                 'cargo' =>'required|max:60', 
                 'unidad_id'=>'required|integer',
-                'foto'=>'nullable'
+                'sexo'=>'required|min:6|max:9|min:8',
+                'foto_up'=>'nullable|image'
             ];
         }
             
