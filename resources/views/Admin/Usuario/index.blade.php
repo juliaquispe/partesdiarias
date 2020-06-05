@@ -12,9 +12,9 @@ usuario
 @section('contenido')
 
 @if(Auth::user()->permiso->add ==1) {{-- pregunta si tiene permiso para crear para que le mueste o no el boton crear --}}
-  <div class="box-tools pull-right" style="color:red">
+  <div class="box-tools pull-right">
     <a href="{{route('crearusuario')}}" class="btn btn-block btn-info btn-sm">
-      <i class=" fa fa-plus" ></i> Crear USuarios
+      <i class=" fa fa-plus" ></i> Crear Usuarios
     </a>
   </div>
 @endif
@@ -24,8 +24,8 @@ usuario
             @include ('includes.mensaje')
             @include ('includes.mensajeerror')
             <div class="card">
-              <div class="card-header" style="background-color:mediumspringgreen">
-                <h3 class="card-title"><b>Usuarios</b></h3>
+              <div class="card-header" style="background-color:rgb(148, 237, 253)">
+                <h3 class="card-title"><b>Lista de Usuarios</b></h3>
                 <div class="card-tools">
                 </div>
               </div>
@@ -60,15 +60,15 @@ usuario
                     <td style="text-align: center;">{{$Usuari->email}}</td>
                     <td style="text-align: center;">
                       @if(Auth::user()->permiso->edit ==1)
-                        <a href="{{url("admin/usuario/$Usuari->id/editar")}}" class="btn-accion-tabla tooltipsC" title="Editar Usuario">
-                          <i class="fa fa-paperclip"></i>
+                        <a href="{{url("admin/usuario/$Usuari->id/editar")}}" class="btn btn-warning btn-xs" title="Editar Usuario">
+                          <i class="fas fa fa-wrench"></i>
                         </a> 
                       @endif
                       @if(Auth::user()->permiso->remove ==1) 
                         <form action="{{url("admin/usuario/$Usuari->id/eliminar")}}" class="d-inline form-eliminar" method="POST" id="form-eliminar">
                           @csrf @method("delete")
-                          <button type="submit" class="btn-action-table eliminar tooltipsC" title="Eliminar Usuario" >
-                            <i class="fa fa-fw fa-trash text-danger"></i>
+                          <button type="submit" class="btn btn-danger btn-xs tooltipC" title="Eliminar Usuario" >
+                            <i class="fas fa fa-trash"></i>
                           </button>
                         </form>
                       @endif

@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Admin\Personal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidacionUnidad;
 use App\Models\Admin\Unidad;
-
+use Barryvdh\DomPDF\Facade as PDF;
 
 class UnidadController extends Controller
 {
     public function index()
     {
         $Unidad=Unidad::orderBy('id')->get();//PARA LISTAR LOS DATOS DE LA TABLA
-
-       return view('Admin.Unidad.index',compact('Unidad'));
+        return view('Admin.Unidad.index',compact('Unidad'));
     }
 
     public function create()
@@ -35,9 +35,11 @@ class UnidadController extends Controller
        return redirect('admin/unidad')->with('mensaje','datos guardados');
     }
 
-    public function show($id)
+    public function lista($id)
     {
-        //
+        $Unidad=Unidad::findOrfail($id); //la unidad agarra los datos solo de esa id 
+        $Personal= Personal::orderBy('id')->get(); // esta variable agarra todos los datos de personal
+        return view('Admin.Unidad.listaunidad', compact('Personal', 'Unidad'));
     }
 
     public function edit($id)
@@ -75,5 +77,12 @@ class UnidadController extends Controller
             abort(404);
         }
 
+    }
+    public function PDFunidad($id)
+    {   
+        $Personal=Personal::all();
+        $Unidad=Unidad::findOrFail($id);
+        $PDF= PDF:: loadview('Admin.Reportes.listas', compact('Personal', 'Unidad'));
+        return $PDF->stream('lista.pdf');
     }
 }

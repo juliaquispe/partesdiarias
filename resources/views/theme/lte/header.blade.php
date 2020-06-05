@@ -77,7 +77,7 @@
                   <p>
                   <i>
                   {{session()->get('nombre_usuario')}}
-                  {{session()->get('apellido_usuario')}}
+                  {{session()->get('apellido')}}
                   </i>
                   <small><i>{{session()->get('email_usuario')}}</i></small>
                 </p>

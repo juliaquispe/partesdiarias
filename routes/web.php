@@ -31,6 +31,8 @@ Route:: group(['prefix'=>'admin','namespace'=>'admin','middleware'=>'auth'],func
 	//rutas para usuario-rol
 	Route:: get('usuariorol','UsuarioRolController@index')->name ('usuariorol');
 	Route:: post('usuariorol','UsuarioRolController@store')->name ('usuariorolestado');
+	Route:: get('usuario/{id}/estado1','UsuarioRolController@estado1')->name ('activo')->middleware('permisoeditar');
+	Route:: get('usuario/{id}/estado0','UsuarioRolController@estado0')->name ('inactivo')->middleware('permisoeditar');
 
 	//rutas para unidad
 	Route:: get('unidad','UnidadController@index')->name ('unidad');
@@ -39,6 +41,9 @@ Route:: group(['prefix'=>'admin','namespace'=>'admin','middleware'=>'auth'],func
 	Route:: get('unidad/{id}/editar','UnidadController@edit')->name ('editarunidad')->middleware('permisoeditar');
 	Route:: put('unidad/{id}/editar','UnidadController@update')->name ('actualizarunidad');
 	Route:: delete('unidad/{id}/eliminar','UnidadController@destroy')->name ('eliminarunidad')->middleware('permisoeliminar');
+	//rutas para lista de personal de unidad
+	Route:: get('unidad/{id}/lista','UnidadController@lista')->name ('verunidad');
+	Route:: get('unidad/{id}/pdfunidad','UnidadController@PDFunidad')->name ('pdfunidad');
 	//rutas para tabla rol
 	Route:: get('rol','RolController@index')->name ('rol');
 	Route:: get('rol/crear','RolController@create')->name ('crearrol')->middleware('permisocrear');

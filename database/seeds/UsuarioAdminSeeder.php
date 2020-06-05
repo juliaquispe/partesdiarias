@@ -43,8 +43,15 @@ class UsuarioAdminSeeder extends Seeder
         	'usuario_id'=>1,
         	'add'=>1,
         	'edit'=>1,
-        	'remove'=>0
+        	'remove'=>1
         ]); 
+
+        DB::table('permiso')->insert([
+        	'usuario_id'=>2,
+        	'add'=>1,
+        	'edit'=>1,
+        	'remove'=>0,
+        ]);
 
          DB::table('unidad')->insert([
             'nombre'=>'Comando',

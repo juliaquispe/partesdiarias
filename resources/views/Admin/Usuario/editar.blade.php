@@ -14,7 +14,7 @@ crear usuario
         <div class="col-md-6">
             <div class="box-tools pull-right" style="color:red">
                 <a href="{{route('usuario')}}" class="btn btn-block btn-info btn-sm">
-                     <i class="fa fa-fw fa-reply-all" ></i> Ver Lista de Roles
+                     <i class="fa fa-fw fa-reply-all" ></i> Ver Lista Usuarios
                 </a>
             </div>
             @include ('includes.formularioerror')

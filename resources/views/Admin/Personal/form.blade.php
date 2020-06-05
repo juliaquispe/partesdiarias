@@ -16,22 +16,26 @@
     <input type="number" max="79797979" min="60000000" class="form-control" style="WIDTH: 350px" required id="celular" name="celular" autocomplete="on" value="{{old('celular',$Personal->celular ?? '')}}"/>       
   </div>
   <div class="form-group">
-    <label class="requerido">Rango</label>
+    <label class="requerido">Item</label>
+    <input type="number" max="100" min="1" class="form-control" style="WIDTH: 350px" id="item" name="item" autocomplete="on" value="{{old('item',$Personal->item ?? '')}}"/>       
+  </div>
+  <div class="form-group">
+    <label class="requerido">cargo</label>
     <input type="text" class="form-control" style="WIDTH: 350px" required id="cargo" name="cargo" autocomplete="on" value="{{old('cargo',$Personal->cargo ?? '')}}"/>       
   </div>
-  <div class="form-group col-lg-10" >
-    <label for="sexo" class="requerido">Genero</label>
-    <select class="form-control" required id="sexo" name="sexo">
+  <div class="form-group col-lg-10">
+    <label for="sexo" class="requerido" class="required">Genero</label>
+    <div class="form-group col-lg-10">
+      <input type="radio" name="sexo" id="sexo" value="masculino"{{old("sexo", $Personal->sexo?? "")=="masculino"? "checked":""}}>
+       <label for="masculino"> Masculino</label><br>
+       <input type="radio" name="sexo"  id="sexo" value="femenino "{{old("sexo", $Personal->sexo?? "")=="femenino"? "checked":""}}>
+       <label for="masculino"> Femenino</label>
+    </div>
+    {{-- <select class="form-control" required id="sexo" name="sexo">
       <option>Seleccione su Genero</option>
       <option value="masculino"{{old("sexo",$Personal->sexo?? "")=="masculino" ? "selected":""}}>Masculino</option>
       <option value="femenino"{{old("sexo",$Personal->sexo?? "")=="femenino" ? "selected":""}}>Femenino</option>
-    </select>
-    {{-- <form action="../../form-result.php" method="post" target="_blank">
-      <p>
-        <label>Sexo:</label><br>
-        <input type="radio" name="sexo" id="sexo" name="sexo" value="femenino" required value="{{old('sexo',$Personal->sexoc ?? '')}}"> Masculino
-        <input type="radio" name="sexo" id="sexo" name="sexo" value="masculino" required value="{{old('sexo',$Personal->sexoc ?? '')}}"> Femenino<br>
-        </p></form> --}}
+    </select> --}}
    </div>
   <div class="form-group">
     <label class="requerido">Fecha</label>

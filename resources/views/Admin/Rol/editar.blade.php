@@ -13,14 +13,12 @@ edtar rol
 				@include ('includes.mensaje')
 <br>
     <body aling="center">
-        <div class="col-md-6">
-          
-          <div class="box-tools pull-right" style="color:red">
-          <a href="{{route('rol')}}" class="btn btn-block btn-info btn-sm">{{-- boton para ir a otra tabla --}}
+        <div class="col-md-6">         
+          <div class="box-tools pull-right">
+            <a href="{{route('rol')}}" class="btn btn-block btn-info btn-sm">{{-- boton para ir a otra tabla --}}
               <i class="fa fa-fw fa-reply-all" ></i> Ver Roles
             </a>
           </div>
-
             <div class="card card-warning">
                 <div class="card-header">
                     <h3 class="card-title"><b>Actualizar Rol</b></h3>

@@ -35,23 +35,19 @@ class UsuarioRolController extends Controller
             }
     }
     
-    public function show($id)
+    public function estado0($id)
     {
-        //
+        $Estado= Usuario::findOrfail($id);
+        $Estado->estado=0;
+        $Estado->save();
+        return redirect('admin/usuariorol');
     }
 
-    public function edit($id)
+    public function estado1($id)
     {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        $Estado= Usuario::findOrfail($id);
+        $Estado->estado=1;
+        $Estado->save();
+        return redirect('admin/usuariorol');
     }
 }

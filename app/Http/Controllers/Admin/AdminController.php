@@ -4,12 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Rol;
+use App\Models\Admin\Unidad;
+use App\Models\Seguridad\Usuario;
+use App\Models\Admin\Personal;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('Admin.Admin.index');
+        $A=Usuario:: all()->count();
+        $B=Personal:: all()->count();
+        $C=Unidad:: all()->count();
+        $D=Rol:: all()->count();
+        return view('Admin.Admin.index', compact('A', 'B', 'C', 'D')); 
     }
 
     public function create()

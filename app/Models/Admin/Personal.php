@@ -14,7 +14,7 @@ class Personal extends Model
 {
     protected $table = "personal";
     protected $fillable= [
-        'nombre', 'apellido', 'ci', 'celular', 'cargo', 'fecha_nac', 'unidad_id', 'sexo', 'foto'
+        'nombre', 'apellido', 'ci', 'celular', 'cargo', 'fecha_nac', 'unidad_id', 'sexo', 'foto', 'item'
     ]; //PARA LLENAR DESDE UN FORMULARIO
   
     public function unidad()

@@ -26,11 +26,11 @@
 </head>
 <body class="hold-transition sidebar-mini layout-boxed">
 <!-- Site wrapper -->
-  <div class="wrapper">
+  <div class="wrapper" style="background-image: url(/assets/images/fondo.jpg); background-size:cover">
   @include ("theme/$theme/header")
   @include ("theme/$theme/aside")
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background-image: url(/assets/images/fond.jpg); background-size:cover">
       <!-- Content Header (Page header)-->
         <section class="content">
          @yield("contenido")

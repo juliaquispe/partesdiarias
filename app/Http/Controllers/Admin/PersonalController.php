@@ -64,7 +64,7 @@ class PersonalController extends Controller
             $personal=Personal::findOrFail($id);
             if (Personal::destroy($id)) {
                 Storage::disk('public')->delete("Datos/Fotos/Personal/$personal->foto");  
-                return response()->json(['mensaje' => 'ok']);
+              return response()->json(['mensaje' => 'ok']);
             } else {
                 return response()->json(['mensaje' => 'ng']);
             }

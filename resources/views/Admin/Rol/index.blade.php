@@ -11,7 +11,7 @@ rol
 @include ('includes.mensaje')
 @include ('includes.mensajeerror')
 @if(Auth::user()->permiso->add ==1) {{-- pregunta si tiene permiso para crear para que le mueste o no el boton crear --}}
-  <div class="box-tools pull-right" style="color:red">
+  <div class="box-tools pull-right">
     <a href="{{route('crearrol')}}" class="btn btn-block btn-info btn-sm">
       <i class=" fa fa-plus" ></i> Crear Roles
     </a>
@@ -40,15 +40,15 @@ rol
                   	<td style="text-align: center;">{{$Rol->name}}</td>
                     <td style="text-align: center;">
                       @if(Auth::user()->permiso->edit ==1)
-                        <a href="{{url("admin/rol/$Rol->id/editar")}}" class="btn-accion-tabla tooltipsC" title="Editar Rol">
-                          <i class="fa fa-paperclip"></i>
+                        <a href="{{url("admin/rol/$Rol->id/editar")}}" class="btn btn-warning btn-xs tooltipC" title="Editar Rol">
+                          <i class="fas fa fa-wrench"></i>
                         </a>  
                       @endif
                       @if(Auth::user()->permiso->remove ==1)
                         <form action="{{url("admin/rol/$Rol->id/eliminar")}}" class="d-inline form-eliminar" method="POST" id="form-eliminar">
                           @csrf @method("delete")
-                          <button type="submit" class="btn-action-table eliminar tooltipsC" title="Eliminar Rol" >
-                            <i class="fa fa-fw fa-trash text-danger"></i>
+                          <button type="submit" class="btn btn-danger btn-xs tooltipC" title="Eliminar Rol" >
+                            <i class="fas fa fa-trash"></i>
                           </button>
                         </form>
                       @endif

@@ -17,7 +17,7 @@ crear personal
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/Personal/crear.js")}}"></script>
+    <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/Personal/crear.js")}}"></script>  {{--para llamar la validqadcion del lado del cliente --}}
 @endsection
 @section('contenido')
 <br>

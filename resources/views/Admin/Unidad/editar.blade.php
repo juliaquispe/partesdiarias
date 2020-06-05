@@ -15,9 +15,8 @@ crear unidad
                     @csrf
                     @method("put")
               		<div class="box-body">
-              			@include('admin.unidad.form1')
+              			@include('admin.unidad.formeditar')
               		</div>
               			<div class="box-footer"></div>
-			</form> 
-<!-- /.card-header -->     
+			</form>     
 @endsection

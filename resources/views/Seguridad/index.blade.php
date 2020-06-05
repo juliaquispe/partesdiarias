@@ -18,18 +18,13 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition login-page" style="background-image: url(/assets/images/fond.jpg); background-size:cover">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="{{route('inicio')}}"><b>Sistema De Partes Diarias</b></a>
-    
-  </div>
+<body class="hold-transition login-page" style="background-image: url(/assets/images/fondo2.jpg); background-size:cover">
+<div class="login-box" >
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body" style="background-color: rgb(91, 194, 207)">
-      <p class="login-box-msg">Iniciar Sesion</p>
-
-
+    <div class="card-body login-card-body" style="background-image: url(/assets/images/fondo3.jpg); background-size:cover">
+      <a style="color: rgb(74, 191, 199)"><b><h3 style="align-center">Sistema De Partes Diarias</h3></b></a>
+      <p class="login-box-msg"><a style="color: rgb(74, 191, 199)">Iniciar Sesion</a></p>
       @if (session('status'))
       <div class="alert alert-success" role="alert">
           {{ session('status') }}
@@ -54,7 +49,7 @@
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     <div class="input-group-append">
                       <div class="input-group-text">
-                         <span class="fas fa-envelope"></span>
+                         <span class="fas fa-user"></span>
                       </div>
                     </div>                   
                 </div>

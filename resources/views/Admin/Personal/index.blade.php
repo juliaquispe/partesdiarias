@@ -34,6 +34,7 @@ personal
               <th style="text-align: center;">Apellido</th>
               <th style="text-align: center;">CI</th>
               <th style="text-align: center;">Celular</th>
+              <th style="text-align: center;">Item</th>
               <th style="text-align: center;">Cargo</th>
               <th style="text-align: center;">Unidad</th>
               <th style="text-align: center;">sexo</th>
@@ -47,6 +48,7 @@ personal
               <td style="text-align: center;">{{$Per->apellido}}</td>
               <td style="text-align: center;">{{$Per->ci}}</td>
               <td style="text-align: center;">{{$Per->celular}}</td>
+              <td style="text-align: center;">{{$Per->item}}</td>
               <td style="text-align: center;">{{$Per->cargo}}</td>
               <td style="text-align: center;">{{$Per->unidad->nombre}}</td>
               <td style="text-align: center;">{{$Per->foto}}</td>
@@ -54,14 +56,14 @@ personal
         
                 @if(Auth::user()->permiso->edit ==1)
                   <a href="{{url("admin/personal/$Per->id/editar")}}" class="btn btn-warning btn-xs" title="Editar Personal">
-                    <i class="fas fa-wrench"></i>{{--es el icono del dibujito--}}
+                    <i class="fas fa fa-wrench"></i>{{--es el icono del dibujito--}}
                   </a> 
                 @endif
                 @if(Auth::user()->permiso->remove ==1) 
-                  <form action="{{url("admin/personal/$Per->id/eliminar")}}" method="POST" id="form-eliminar" class="form-eliminar btn btn-danger btn-xs">
+                  <form action="{{url("admin/personal/$Per->id/eliminar")}}" method="POST" id="form-eliminar"  class="d-inline form-eliminar" >
                     @csrf @method("delete")
-                    <button type="submit" title="Eliminar Personal">
-                      <i class="fa fa-fw fa-trash"></i>{{--es el icono del dibujito--}}
+                    <button type="submit" title="Eliminar Personal" class="btn btn-danger btn-xs tooltipC">
+                      <i class="fas fa fa-trash"></i>{{--es el icono del dibujito--}}
                     </button>
                   </form>
                 @endif

@@ -20,6 +20,7 @@ class CreateUsuarioTable extends Migration
             $table->string('apellido',60);
             $table->string('email', 60)->unique();
             $table->string('password', 100);
+            $table->string('estado', 1)->nullable()->default(1);
             $table->timestamps();
         });
     }

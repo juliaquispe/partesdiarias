@@ -25,12 +25,12 @@ class LoginController extends Controller
       {
         // $roles = $user->roles()->where('estado',1)->get(); //para activar el estado
           $roles = $user->roles()->get();
-          if ($roles->isNotEmpty()) {
-              $user->setSession($roles->toArray());
+          if ($user->estado==1) {
+              $user->setSession($roles->toArray()); //setsession agarra datos del usuario 
           } else {
               $this->guard()->logout();
               $request->session()->invalidate();
-              return redirect('seguridad/login')->withErrors(['error' => 'Este usuario no tiene un rol activo']);
+              return redirect('seguridad/login')->withErrors(['error' => ' Usuario inactivo']);
           }
       }
    
