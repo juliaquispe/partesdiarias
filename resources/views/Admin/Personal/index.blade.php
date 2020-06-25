@@ -5,7 +5,7 @@ personal
 @section('scripts')
   <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/Alertas/alertas.js")}}"></script>
   <script type="text/javascript" src="{{asset("assets/Pages/Scripts/Admin/datatable/datatable.js")}}"></script>
-  @endsection
+@endsection
 @section('contenido')
 @if(Auth::user()->permiso->add ==1) {{-- pregunta si tiene permiso para crear para que le mueste o no el boton crear --}}
   <div class="box-tools pull-right">
@@ -21,8 +21,6 @@ personal
     <div class="card">
       <div class="card-header" style="background-color:rgb(148, 237, 253)">
         <h3 class="card-title"><b>Lista de Personal</b></h3>
-        <div class="card-tools">
-        </div>
       </div>
       <!-- /.card-header -->
       <div class="card-body table-responsive p-0" style="height: 300px;">

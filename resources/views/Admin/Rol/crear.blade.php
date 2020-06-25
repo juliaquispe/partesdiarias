@@ -20,7 +20,6 @@ crear rol
               <i class="fa fa-fw fa-reply-all" ></i> Ver Roles
             </a>
           </div>
-
             <div class="card card-warning">
                 <div class="card-header">
                     <h3 class="card-title"><b>Crear Nuevo Rol</b></h3>
@@ -31,20 +30,16 @@ crear rol
                       @csrf
                       <div class="row">
                         <div class="col-sm-6">
-                          <!-- text input -->
                           <div class="form-group">
                             <label class="requerido">Nombre</label>
                             <input type="text" class="form-control" placeholder="Ingrese Nombre del rol" required id="name" name="name" autocomplete="on" value="{{old("name")}}" />
                           </div>
                         </div>                  
                       </div>
-                      <!-- input states -->
                       @include('Includes.botoncrear')
                     </form>
                 </div>
-
             </div>
-                <!-- /.card-body -->
         </div>
     </body>
 @endsection

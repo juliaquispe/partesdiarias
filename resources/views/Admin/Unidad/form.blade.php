@@ -1,6 +1,6 @@
 <body aling="center">
  <div class="col-md-6">
-  <div class="box-tools pull-right" style="color:red">
+  <div class="box-tools pull-right">
     <a href="{{route('unidad')}}" class="btn btn-block btn-info btn-sm">
       <i class="fa fa-fw fa-reply-all" ></i> Ver Unidades
     </a>
@@ -19,7 +19,7 @@
                       </div>
                       <div class="form-group">
                         <label>Descripcion</label>
-                        <textarea class="form-control" rows="3" placeholder="" id="descripcion" name="descripcion" value="{{old("nombre")}}"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="" id="descripcion" autocomplete="on" name="descripcion" value="{{old("nombre")}}"></textarea>
                       </div>
                       <!-- textarea -->
                       <div class="form-group">

@@ -73,5 +73,26 @@ class UsuarioAdminSeeder extends Seeder
             'estado'=>'0'
            
         ]);
+
+        DB::table('formulario')->insert([
+        
+        	'nombre'=>'Formulario de Auxilios',
+        	'codigo'=>'FORM.01',
+        	'descripcion'=>'Se encuentran  los registro de las personas que fueron auxiliados'
+        ]);
+
+        DB::table('formulario')->insert([
+        
+        	'nombre'=>'Formulario de Casos Atendidos de Faltas y Contravenviones Policiales',
+        	'codigo'=>'FORM.02',
+        	'descripcion'=>'Se encuentran  los casos de Faltas y Contravenviones Policial atendidas'
+        ]);
+
+        DB::table('formulario')->insert([
+        
+        	'nombre'=>'Formulario de Infracciones de Transito',
+        	'codigo'=>'FORM.03',
+        	'descripcion'=>'Se encuentran  las infraccionesde transito atendidas'
+        ]);
     }
 }

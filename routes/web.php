@@ -1,23 +1,20 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
+use Illuminate\Support\Facades\Route;
 
 Route:: get('/','InicioController@index')->name('inicio');
 //rutas para login
 Route:: get ('seguridad/logout', 'Seguridad\LoginController@logout')->name('logout');
 Route:: get ('seguridad/login', 'Seguridad\LoginController@index')->name('login');
 Route:: post('seguridad/login','Seguridad\LoginController@login')->name('loginpost');
+//rutas form para invitados
+Route:: get('formulario', 'Admin\FormularioController@index')->name ('formulario');
+Route:: get('formulario/crear_veri/{id}','Admin\FormularioController@crear_veri')->name ('crear_veri');
+Route:: post('formulario/verificar','Admin\FormularioController@verificar')->name ('verificar_per');
+Route:: get('formulario/crearparte', 'Admin\ParteController@create')->name ('crear_parte');
+Route:: post('parte1','Admin\ParteController@store1')->name ('guardar_F1');
+Route:: post('parte2','Admin\ParteController@store2')->name ('guardar_F2');
+Route:: post('parte3','Admin\ParteController@store3')->name ('guardar_F3');
 
 Route:: group(['prefix'=>'admin','namespace'=>'admin','middleware'=>'auth'],function(){
 	//rutas para usuario
@@ -58,4 +55,26 @@ Route:: group(['prefix'=>'admin','namespace'=>'admin','middleware'=>'auth'],func
 	Route:: get('personal/{id}/editar','PersonalController@edit')->name ('editarpersonal')->middleware('permisoeditar');
 	Route:: put('personal/{id}','PersonalController@update')->name ('actualizarpersonal');
 	Route:: delete('personal/{id}/eliminar','PersonalController@destroy')->name ('eliminarpersonal')->middleware('permisoeliminar');
+	//rutas para tabla formulaio1
+	Route:: get('formulario1', function(){
+		return view('Admin/Partes/Formulario1/index');
+	});
+	//rutas para tabla formulaio2
+	Route:: get('formulario2', function(){
+		return view('Admin/Partes/Formulario2/index');
+	});
+		//rutas para tabla formulaio2
+	Route:: get('formulario3', function(){
+		return view('Admin/Partes/Formulario3/index');
+	});
+	//rutas para tabla formulario
+		
+		Route:: get('formulario/crear','FormularioController@create')->name ('crearformulario')->middleware('permisocrear');
+		Route:: post('formulario','FormularioController@store')->name ('guardarformulario');
+		Route:: get('formulario/{id}/editar','FormularioController@edit')->name ('editarformulario')->middleware('permisoeditar');
+		Route:: put('formulario/{id}','FormularioController@update')->name ('actualizarformulario');
+		Route:: delete('formulario/{id}/eliminar','FormularioController@destroy')->name ('eliminarformulariol')->middleware('permisoeliminar');
+
+
+		
 });

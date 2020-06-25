@@ -4,8 +4,6 @@
 crear personal
 @endsection
 
-
-
 @section("styles")
     <link href="{{asset("assets/Js/bootstrap-fileinput/css/fileinput.min.css")}}" rel="stylesheet" type="text/css"/>
 @endsection
@@ -23,16 +21,16 @@ crear personal
 <br>
 <body aling="center">
     <div class="col-md-6">
-        <div class="box-tools pull-right" style="color:red">
-        <a href="{{route('personal')}}" class="btn btn-block btn-info btn-sm">
-            <i class="fa fa-fw fa-reply-all" ></i> Ver Personal
-        </a>
+        <div class="box-tools pull-right">
+            <a href="{{route('personal')}}" class="btn btn-block btn-info btn-sm">
+                <i class="fa fa-fw fa-reply-all" ></i> Ver Personal
+            </a>
         </div>       
         @include ('includes.mensaje')
         @include ('includes.formularioerror')
         <div class="card card-warning">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Crear Personal</b></h3>
+                    <h3 class="card-title"><b>Crear Nuevo Personal</b></h3>
                 </div>
             <div class="card-body">
                 <form class="form-horizontal" action="{{route ('guardarpersonal')}}" id="form-general" method="POST" enctype="multipart/form-data">
