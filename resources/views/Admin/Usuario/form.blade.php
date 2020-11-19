@@ -3,7 +3,6 @@
       <label class="requerido">Usuario</label>
       <input type="text" class="form-control" style="WIDTH: 350px" placeholder="Admin" required id="usuario" name="usuario" autocomplete="on" value="{{old('usuario', $Usuario->usuario ?? '')}}" />
     </div>
-
     <div class="form-group">
         <label class="requerido">Nombre</label>
         <input type="text" class="form-control" style="WIDTH: 350px" placeholder="Juan" required id="nombre" name="nombre" autocomplete="on" value="{{old('nombre', $Usuario->nombre ?? '')}}"/>
@@ -60,6 +59,13 @@
                 checked
             @endif
         >Eliminar
+    </label>
+    <label>
+        <input type="checkbox" name="eliminar" id="eliminar"
+            @if (isset($Usuario)&&$Usuario->permiso->remove ==1)
+                checked
+            @endif
+        >Modificar
     </label>
 </div>
     

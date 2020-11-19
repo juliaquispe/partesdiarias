@@ -20,8 +20,30 @@
     <input type="number" max="100" min="1" class="form-control" style="WIDTH: 350px" id="item" name="item" autocomplete="on" value="{{old('item',$Personal->item ?? '')}}"/>       
   </div>
   <div class="form-group">
-    <label class="requerido">cargo</label>
-    <input type="text" class="form-control" style="WIDTH: 350px" required id="cargo" name="cargo" autocomplete="on" value="{{old('cargo',$Personal->cargo ?? '')}}"/>       
+    <label class="requerido">Grado</label>
+        <select class="form-control" name="cargo" id="cargo" style="WIDTH: 350px" autocomplete="on" value="{{old('cargo',$Personal->cargo ?? '')}}">
+          <option value="Seleccione Grado">Seleccione Grado</option>
+          <option value="Alumno">Alumno</option>
+          <option value="Policía">Policía</option>
+          <option value="Cabo">Cabo</option>
+          <option value="Sargento Segundo">Sargento Segundo</option>
+          <option value="Sargento Primero">Sargento Primero</option>
+          <option value="Suboficial Segundo">Suboficial Segundo</option>
+          <option value="Suboficial Primero">Suboficial Primero</option>
+          <option value="Suboficial Mayor">Suboficial Mayor</option>
+          <option value="Suboficial Superior">Suboficial Superior</option>
+          <option value="Cadete">Cadete</option>
+          <option value="Subteniente">Subteniente</option>
+          <option value="Teniente">Teniente</option>
+          <option value="Capitán">Capitán</option>
+          <option value="Mayor">Mayor</option>
+          <option value="Teniente coronel">Teniente coronel</option>
+          <option value="Coronel">Coronel</option>
+          <option value="General Superior">General Superior</option>
+          <option value="General Supervisor">General Supervisor</option>
+          <option value="Comandante General de la Policía">Comandante General de la Policía</option>
+        </select>
+    {{-- <input type="text" class="form-control" style="WIDTH: 350px" required id="cargo" name="cargo" autocomplete="on" value="{{old('cargo',$Personal->cargo ?? '')}}"/>        --}}
   </div>
   <div class="form-group col-lg-10">
     <label for="sexo" class="requerido" class="required">Genero</label>

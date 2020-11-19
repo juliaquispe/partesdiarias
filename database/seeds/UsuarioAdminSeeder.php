@@ -24,7 +24,7 @@ class UsuarioAdminSeeder extends Seeder
          DB::table('usuario')->insert([
         
         	'usuario'=>'admin',
-        	'nombre'=>'kato',
+        	'nombre'=>'katerin',
         	'apellido'=>'parra',
         	'email'=>'parra@gmail.com',
         	'password'=>bcrypt('admin')
@@ -92,7 +92,7 @@ class UsuarioAdminSeeder extends Seeder
         
         	'nombre'=>'Formulario de Infracciones de Transito',
         	'codigo'=>'FORM.03',
-        	'descripcion'=>'Se encuentran  las infraccionesde transito atendidas'
+        	'descripcion'=>'Se encuentran  las Infracciones de Transito atendidas'
         ]);
     }
 }
